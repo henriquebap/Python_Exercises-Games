@@ -1,10 +1,10 @@
 import random
-
-def jogar():
+def open_menssage():
     print("*********************************")
     print("***Bem vindo ao jogo da Forca!***")
     print("*********************************")
 
+def secret_word_function():
     arquivo = open("palavras.txt", "r")
     palavras = []
 
@@ -16,7 +16,18 @@ def jogar():
 
     numero = random.randrange(0, len(palavras))
     palavra_secreta = palavras[numero].upper()
-    letras_acertadas = ["_" for letra in palavra_secreta]
+    return palavra_secreta
+
+def correct_letters(palavra_secreta):
+    return ["_" for letra in palavra_secreta]
+
+def jogar():
+
+    open_menssage()
+
+    palavra_secreta = secret_word_function()
+
+    letras_acertadas = correct_letters(palavra_secreta)
 
     acertou = False
     enforcou = False
